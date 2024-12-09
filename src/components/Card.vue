@@ -7,7 +7,7 @@
         <div class="flex flex-col gap-8">
             <div v-for="(faq,key) in faqs" :key class="flex flex-col gap-8">
                 <div class="flex justify-between items-center">
-                    <span class="app-text-title">{{ faq.question }}</span>
+                    <label class="app-text-title"><input type="radio" :value="key" v-model="picked" />{{ faq.question }}</label>
                 </div>
                 <p class="app-text-body text-app-pale-purple">{{ faq.answer }}</p>
             </div>
@@ -16,6 +16,7 @@
 </template>
 
 <script lang="ts" setup>
+import { ref } from 'vue'
 const faqs = [
     {
         question: "What is Frontend Mentor, and how will it help me?",
@@ -33,5 +34,6 @@ const faqs = [
         question: "How can I get help if I'm stuck on a Frontend Mentor challenge?",
         answer: "The best place to get help is inside Frontend Mentor's Discord community. There's a help channel where you can ask questions and seek support from other community members."
     }
-];
+]
+const picked= ref(0)
 </script>

@@ -1,23 +1,42 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+    font-family: 'WorkSans';
+    src: url('/src/assets/fonts/WorkSans-VariableFont_wght.ttf') format('truetype');
+}
+
+$font-size-desktop: 16px;
+$font-size-mobile: 14px;
 
 @layer base {
-  // Your custom base styles here
 
-  $default-font-size: 16px;
-  html{
-    font-size: $default-font-size;
-  }
-  body{
-    @apply text-base;
-  }
-  .app-text-display{
-    @apply font-bold;
-    font-size:calc(56px/$default-font-size);
-  }
-  .app-text-title{
-    @apply font-semibold;
-    font-size:calc(18px/$default-font-size);
-  }
+    html {
+        font-size: clamp(0.875rem, 0.831rem + 0.188vw, 1rem);
+        font-family: 'WorkSans', sans-serif;
+    }
+
+    body {
+        @apply text-base;
+        @apply bg-app-lignt-pink;
+        @apply bg-[url(/src/assets/images/background-pattern-mobile.svg)];
+        @apply app-mobile:bg-[url(/src/assets/images/background-pattern-desktop.svg)];
+        @apply bg-no-repeat bg-top;
+    }
+
+    .app-text-display {
+        @apply font-bold;
+        font-size: 3.5rem;
+        @apply leading-none;
+        @apply text-app-dark-purple;
+    }
+
+    .app-text-title {
+        @apply font-semibold;
+        font-size: 1.125rem;
+        @apply leading-none;
+        @apply text-app-dark-purple;
+    }
 }

@@ -4,7 +4,7 @@
             <img src="/src/assets/images/icon-star.svg" alt="star" class="w-[2.5rem] aspect-square"/>
             <h1 class="app-text-display">FAQs</h1>
         </div>
-        <main class="flex flex-col gap-8">
+        <div class="flex flex-col gap-8">
             <div v-for="(faq,key) in faqs" :key class="grid duration-500 transition-[grid-template-rows] grid-rows-[auto_0fr] has-[:checked]:grid-rows-[auto_1fr] gap-y-4">
                 <label class="app-text-title flex items-center cursor-pointer group hover:text-app-pink">
                     <input type="radio" :value="key" v-model="picked" class="appearance-none">{{ faq.question }} 
@@ -15,7 +15,7 @@
                 </label>
                 <p class="app-text-body text-app-pale-purple overflow-y-hidden">{{ faq.answer }}</p>
             </div>
-        </main>
+        </div>
     </div>
 </template>
 

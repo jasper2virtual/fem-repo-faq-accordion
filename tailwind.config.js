@@ -12,6 +12,7 @@ export default {
       },
       colors: {
         'app-lignt-pink':'#F8EEFF',
+        'app-pink':'#AD28EB',
         'app-dark-purple':'#301534',
         'app-pale-purple':'#8B6990'
       },

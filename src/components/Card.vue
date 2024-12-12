@@ -1,22 +1,26 @@
 <template>
-    <div class="bg-white p-8 rounded-xl flex flex-col w-full max-w-[600px]">
+    <div class="bg-white p-8 rounded-xl flex flex-col w-full max-w-[600px] gap-y-8">
         <div class="flex gap-8">
             <img src="/src/assets/images/icon-star.svg" alt="star" class="w-[2.5rem] aspect-square"/>
             <span class="app-text-display">FAQs</span>
         </div>
         <div class="flex flex-col gap-8">
-            <div v-for="(faq,key) in faqs" :key class="flex flex-col gap-8">
-                <div class="flex justify-between items-center">
-                    <label class="app-text-title"><input type="radio" :value="key" v-model="picked" />{{ faq.question }}</label>
-                </div>
-                <p class="app-text-body text-app-pale-purple">{{ faq.answer }}</p>
+            <div v-for="(faq,key) in faqs" :key class="grid duration-500 transition-[grid-template-rows] grid-rows-[auto_0fr] has-[:checked]:grid-rows-[auto_1fr] gap-y-4">
+                <label class="app-text-title flex items-center cursor-pointer group hover:text-app-pink">
+                    <input type="radio" :value="key" v-model="picked" class="appearance-none">{{ faq.question }} 
+                    <div class="grid grid-cols-1 grid-rows-1 ml-auto shrink-0">
+                        <img class="row-span-full col-span-full group-has-[:checked]:opacity-0 duration-500 transition-opacity" src="/src/assets/images/icon-plus.svg">
+                        <img class="row-span-full col-span-full opacity-0 group-has-[:checked]:opacity-100 duration-500 transition-opacity" src="/src/assets/images/icon-minus.svg">
+                    </div>  
+                </label>
+                <p class="app-text-body text-app-pale-purple overflow-y-hidden">{{ faq.answer }}</p>
             </div>
         </div>
     </div>
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { ref, Transition } from 'vue'
 const faqs = [
     {
         question: "What is Frontend Mentor, and how will it help me?",
@@ -31,7 +35,7 @@ const faqs = [
         answer: "Yes, you can use projects completed on Frontend Mentor in your portfolio. It's an excellent way to showcase your skills to potential employers!"
     },
     {
-        question: "How can I get help if I'm stuck on a Frontend Mentor challenge?",
+        question: "How can I get help if I'm stuck on a challenge?",
         answer: "The best place to get help is inside Frontend Mentor's Discord community. There's a help channel where you can ask questions and seek support from other community members."
     }
 ]

@@ -1,11 +1,11 @@
 <template>
-    <div class="bg-white p-8 rounded-xl flex flex-col w-full max-w-[600px] gap-y-8">
+    <div class="bg-white p-10 rounded-xl flex flex-col w-full max-w-[600px] gap-y-6">
         <div class="flex gap-8">
             <img src="/src/assets/images/icon-star.svg" alt="star" class="w-[2.5rem] aspect-square"/>
             <h1 class="app-text-display">FAQs</h1>
         </div>
-        <div class="flex flex-col gap-8">
-            <div v-for="(faq,key) in faqs" :key class="grid duration-500 transition-[grid-template-rows] grid-rows-[auto_0fr] has-[:checked]:grid-rows-[auto_1fr] gap-y-4">
+        <div class="flex flex-col gap-8 divide-y">
+            <div v-for="(faq,key) in faqs" :key class="grid duration-500 transition-[grid-template-rows] grid-rows-[auto_0fr] has-[:checked]:grid-rows-[auto_1fr] gap-y-4 pt-4">
                 <label class="app-text-title flex items-center cursor-pointer group hover:text-app-pink">
                     <input type="radio" :value="key" v-model="picked" class="appearance-none">{{ faq.question }} 
                     <div class="grid grid-cols-1 grid-rows-1 ml-auto shrink-0">
